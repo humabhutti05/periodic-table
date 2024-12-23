@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Periodic Table</title>
@@ -220,4 +220,209 @@
         </table>
     </div>
 </body>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Interactive Periodic Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        #search-bar {
+            display: block;
+            margin: 0 auto 20px;
+            padding: 10px;
+            width: 80%;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+            overflow-x: auto;
+            animation: scaleIn 1s ease-in-out;
+        }
+
+        td {
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+            width: 40px;
+            height: 60px;
+            border: 1px solid #ddd;
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        td:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        td[data-tooltip]:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: #fff;
+            padding: 5px;
+            font-size: 12px;
+            border-radius: 5px;
+            white-space: nowrap;
+        }
+
+        td[data-tooltip]:hover::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent #333 transparent;
+        }
+
+        .theme-switch {
+            display: block;
+            margin: 0 auto 20px;
+            text-align: center;
+        }
+
+        .theme-switch input {
+            margin-right: 10px;
+        }
+
+        .dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        .dark-mode td[data-tooltip]:hover::after {
+            background: #e0e0e0;
+            color: #121212;
+        }
+
+        .dark-mode table {
+            border-color: #444;
+        }
+
+        .legend-table {
+            margin-top: 20px;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            td {
+                width: 30px;
+                height: 50px;
+                font-size: 12px;
+            }
+
+            #search-bar {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Interactive Periodic Table</h1>
+        <div class="theme-switch">
+            <label>
+                <input type="checkbox" id="theme-toggle"> Enable Dark Mode
+            </label>
+        </div>
+        <input type="text" id="search-bar" placeholder="Search for an element by name, symbol, or atomic number..." />
+        <table>
+            <tr>
+                <td class="alkali" data-tooltip="Hydrogen (H), Atomic No: 1">1<br>H</td>
+                <td class="empty-cell" colspan="16"></td>
+                <td class="noble-gas" data-tooltip="Helium (He), Atomic No: 2">2<br>He</td>
+            </tr>
+            <!-- Add the rest of the periodic table rows here -->
+        </table>
+        <br>
+        <table class="legend-table">
+            <tr>
+                <td class="alkali">Alkali metals</td>
+                <td class="alkaline-earth">Alkaline earth</td>
+                <td class="transition">Transition metals</td>
+                <td class="basic">Basic metals</td>
+                <td class="metalloid">Metalloids</td>
+                <td class="non-metal">Non-metals</td>
+                <td class="halogen">Halogen</td>
+                <td class="noble-gas">Noble gases</td>
+                <td class="lanthanide">Lanthanides</td>
+                <td class="actinide">Actinides</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        const searchBar = document.getElementById("search-bar");
+        const tableCells = document.querySelectorAll("td");
+        const themeToggle = document.getElementById("theme-toggle");
+
+        searchBar.addEventListener("input", () => {
+            const query = searchBar.value.toLowerCase();
+            tableCells.forEach(cell => {
+                const content = cell.textContent.toLowerCase();
+                if (content.includes(query)) {
+                    cell.style.backgroundColor = "yellow";
+                } else {
+                    cell.style.backgroundColor = "";
+                }
+            });
+        });
+
+        themeToggle.addEventListener("change", () => {
+            document.body.classList.toggle("dark-mode");
+        });
+    </script>
+</body>
 </html>
+
+</html>
+ -->
